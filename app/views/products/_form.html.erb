@@ -27,26 +27,28 @@
   </div>
 
   <h2>Properties</h2>
-  <div>
-    <%= form.fields_for :properties do |property_form| %>
-      <%= property_form.hidden_field :id %>
+  <div data-controller="properties" data-index="<%= form.object.properties.count > 0 ? form.object.properties.count : 1 %>">
+    <div data-properties-target="propertyFields">
+      <%= form.fields_for :properties do |property_form| %>
+        <%= property_form.label :name, style: "display: block" %>
+        <%= property_form.text_field :name %>
 
-      <%= property_form.label :name, style: "display: block" %>
-      <%= property_form.text_field :name %>
+        <%= property_form.label :value, style: "display: block" %>
+        <%= property_form.text_field :value %>
 
-      <%= property_form.label :value, style: "display: block" %>
-      <%= property_form.text_field :value %>
+        <% if property_form.object.persisted? %>
+          <%= property_form.label :_destroy, style: "display: block" %>
+          <%= property_form.check_box :_destroy %>
 
-      <% if property_form.object.persisted? %>
-        <%= property_form.label :_destroy, style: "display: block" %>
-        <%= property_form.check_box :_destroy %>
+          <%= property_form.hidden_field :id %>
+        <% end %>
+        <hr>
       <% end %>
-      <hr>
-    <% end %>
+    </div>
+
+    <%= link_to 'Add Property', 'javascript:void(0);', data: { action: "properties#addProperty" } %>
   </div>
   <br>
-
-  <%#= link_to_add_fields 'Add Product Images', f, :images %>
 
   <div>
     <%= form.submit %>
