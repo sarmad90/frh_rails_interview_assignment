@@ -26,6 +26,28 @@
     <%= form.datetime_field :available_on %>
   </div>
 
+  <h2>Properties</h2>
+  <div>
+    <%= form.fields_for :properties do |property_form| %>
+      <%= property_form.hidden_field :id %>
+
+      <%= property_form.label :name, style: "display: block" %>
+      <%= property_form.text_field :name %>
+
+      <%= property_form.label :value, style: "display: block" %>
+      <%= property_form.text_field :value %>
+
+      <% if property_form.object.persisted? %>
+        <%= property_form.label :_destroy, style: "display: block" %>
+        <%= property_form.check_box :_destroy %>
+      <% end %>
+      <hr>
+    <% end %>
+  </div>
+  <br>
+
+  <%#= link_to_add_fields 'Add Product Images', f, :images %>
+
   <div>
     <%= form.submit %>
   </div>

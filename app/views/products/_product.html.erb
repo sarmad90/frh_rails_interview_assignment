@@ -14,4 +14,12 @@
     <%= product.available_on %>
   </p>
 
+  <h2>Properties</h2>
+
+  <% product.properties.each do |property| %>
+    <p>
+      <strong><%= property.name %>:</strong>
+      <%= property.value %>
+    </p>
+  <% end %>
 </div>
