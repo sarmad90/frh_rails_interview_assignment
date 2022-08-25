@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Make sure a Ruby version manager, preferably rbenv is installed and Ruby 3.1.0 is installed.
 
-Things you may want to cover:
+* Make sure Postgres database is installed and the server is running
 
-* Ruby version
+* Run bundle install
 
-* System dependencies
+* Run rails db:create
 
-* Configuration
+* Run rails db:migrate
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run rails server to start the application locally
