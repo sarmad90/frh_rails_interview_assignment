@@ -9,11 +9,17 @@ export default class extends Controller {
     let fieldSetId = idPrefix + "_fieldset";
     let html = `
       <div id="${fieldSetId}">
-        <label style="display: block" for="product_properties_attributes_${index}_name">Name</label>
-        <input type="text" name="product[properties_attributes][${index}][name]" id="${idPrefix}_name">
-
-        <label style="display: block" for="product_properties_attributes_${index}_value">Value</label>
-        <input type="text" name="product[properties_attributes][${index}][value]" id="${idPrefix}_value">
+        <div class="row">
+          <div class="col-md-6">
+            <label style="display: block" for="product_properties_attributes_${index}_name">Name</label>
+            <input type="text" name="product[properties_attributes][${index}][name]" id="${idPrefix}_name">
+          </div>
+          <div class="col-md-6">
+            <label style="display: block" for="product_properties_attributes_${index}_value">Value</label>
+            <input type="text" name="product[properties_attributes][${index}][value]" id="${idPrefix}_value">
+          </div>
+        </div>
+        
         <a data-action="properties#removeProperty" href="javascript:void(0);" data-properties-fieldset-id-param="${fieldSetId}">Remove Property</a>
         <hr>
       </div>
