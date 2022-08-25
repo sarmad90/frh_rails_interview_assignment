@@ -25,20 +25,26 @@
     <%= form.label :available_on, style: "display: block" %>
     <%= form.datetime_field :available_on %>
   </div>
-
+  <hr>
   <h2>Properties</h2>
   <div data-controller="properties" data-index="<%= form.object.properties.count > 0 ? form.object.properties.count : 1 %>">
     <div data-properties-target="propertyFields">
       <%= form.fields_for :properties do |property_form| %>
-        <%= property_form.label :name, style: "display: block" %>
-        <%= property_form.text_field :name %>
-
-        <%= property_form.label :value, style: "display: block" %>
-        <%= property_form.text_field :value %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= property_form.label :name, style: "display: block" %>
+            <%= property_form.text_field :name %>
+          </div>
+          <div class="col-md-6">
+            <%= property_form.label :value, style: "display: block" %>
+            <%= property_form.text_field :value %>
+          </div>
+        </div>
 
         <% if property_form.object.persisted? %>
-          <%= property_form.label :_destroy, style: "display: block" %>
+          <br>
           <%= property_form.check_box :_destroy %>
+          <%= property_form.label :_destroy %>
 
           <%= property_form.hidden_field :id %>
         <% end %>
