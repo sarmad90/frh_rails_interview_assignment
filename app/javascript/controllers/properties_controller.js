@@ -3,10 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['propertyFields'];
 
-  connect() {
-    // this.element.textContent = "Hello World!"
-  }
-
   addProperty() {
     let index = this.element.dataset.index;
     let idPrefix = "product_properties_attributes_" + index;
